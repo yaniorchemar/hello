@@ -1,0 +1,93 @@
+<mat-toolbar color="primary">
+  <span>GameViewer</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>|:|</mat-icon>
+  </button>
+  <!--NUEVO-->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>-></mat-icon>
+      <span>Login</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>!</mat-icon>
+      <span>Issues</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>/!\</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!--NUEVONUEVONUEVO-->
+<!--NUEVONUEVONUEVO-->
+<mat-tab-group>
+  <mat-tab label="Gallery">
+    <mat-card *ngFor="let spaceScreen of spaceScreens; let i = index">
+      <img mat-card-image src="{{spaceScreen.img}}">
+      <mat-card-content>
+        <p>{{spaceScreen.description}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="likeMe(i)">
+          <i class="material-icons mat-18" [class.red-color]="spaceScreen.liked == '1'">favorite</i>LIKE
+        </button>
+        <button mat-button (click)="deleteMe(i)">
+            <i class="material-icons mat-18">delete</i>DELETE
+          </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Settings">
+
+  </mat-tab>
+</mat-tab-group>
+          
+      
+  		
+
+
+
+
+
+
+
+
+
+
+<!--
+<mat-input-container>
+  <input 
+    ngModel
+    #username="ngModel"
+    name="username"
+    type="text" matInput placeholder="Username" required>
+  <mat-hint>Type a unique Username</mat-hint>
+  <span matSuffix>@domain.com</span>
+  <span matPrefix>admin.</span>
+  <mat-error *ngIf="username.invalid && username.errors.required">
+    The Username field is required.
+  </mat-error>
+</mat-input-container>
+###################################################################
+<mat-select [(ngModel)]="color">
+  <mat-option 
+    *ngFor="let color of colors"
+    [value]="color.id"
+  >{{color.name}}</mat-option>
+</mat-select>
+###################################################################
+<mat-radio-group value="0">
+  <mat-radio-button value="1">Male</mat-radio-button>
+  <mat-radio-button value="0">Female</mat-radio-button>
+</mat-radio-group>
+###################################################################
+<mat-checkbox
+  #showDetails
+  [value]=""
+  [checked]="isChecked"
+  (change)="onChange($event)"
+>Mostrar detalles</mat-checkbox>
+
+<div *ngIf="showDetails.checked">Algunos detalles...</div>-->
